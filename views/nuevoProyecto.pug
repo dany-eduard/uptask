@@ -1,0 +1,11 @@
+extends layout
+include mixins/crearEditarProyecto
+block contenido
+    .contenido-principal
+        h1 #{titleWeb}
+        //-pre= vardump(proyecto)
+        if errores 
+            each error in errores
+               .alerta
+                    .error= error.texto
+        +crearEditarProyecto(proyecto)

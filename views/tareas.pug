@@ -1,0 +1,13 @@
+extends layout
+
+block contenido
+    .contenido-principal
+        h1 Tareas del proyecto: #{proyecto.nombre}
+        // Formulario aquí
+        // Listado de pendientes
+
+        //-pre= vardump(proyecto)
+        // Acciones que se realizarán
+        .contenedor-acciones
+            a(href=`/proyecto/editar/${proyecto.id}`, class="boton") Editar proyecto
+            button#eliminar-proyecto(data-proyecto-url=proyecto.url type='button' class="boton eliminar") Eliminar proyecto
