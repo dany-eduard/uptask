@@ -9,6 +9,7 @@ const app = express(); //Crear una aplicación con express
 
 const db = require("./config/db"); //Conexión a la db
 require("./models/Proyectos"); // Importar el modelo de la db
+require("./models/Tareas"); // Importar el modelo de la db
 db.sync() //Crear el modelo db si no existe y conecta al servidor de la db
   .then(() => console.log("Conectado al Servidor MySQL"))
   .catch((error) => console.error(error));

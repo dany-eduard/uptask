@@ -1,4 +1,5 @@
 const Proyectos = require("../models/Proyectos"); //Importa el modelo de la db
+const Tareas = require("../models/Tareas");
 
 //Crea el controlador del home
 exports.proyectosHome = async (req, res) => {
@@ -51,6 +52,15 @@ exports.proyectoUlr = async (req, res, next) => {
     proyectosPromise,
     proyectoPromise,
   ]);
+  //Consultar tareas del proyecto actual
+  const tareas = await Tareas.findAll({
+    where: {
+      proyectoId: proyecto.id,
+    },
+    /* include: [{ model: Proyectos }], */
+  });
+  console.log(tareas);
+
   //Si la url del proyecto no existe
   if (!proyecto) {
     res.send(" -- ERROR 404: Proyecto no encontrado.");
@@ -61,6 +71,7 @@ exports.proyectoUlr = async (req, res, next) => {
     titleWeb: "Tareas del proyecto",
     proyecto,
     proyectos,
+    tareas,
   });
 };
 exports.formularioEditar = async (req, res) => {

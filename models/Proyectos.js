@@ -16,8 +16,8 @@ const Proyectos = db.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    nombre: { type: Sequelize.STRING },
-    url: { type: Sequelize.STRING },
+    nombre: { type: Sequelize.STRING(100) },
+    url: { type: Sequelize.STRING(100) },
   },
   {
     hooks: {
