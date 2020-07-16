@@ -9,7 +9,9 @@ if (tareas) {
       /** Request hacia  /tareas/:id */
       const url = `${location.origin}/tareas/${idTarea}`;
       axios.patch(url, { idTarea }).then(function (res) {
-        console.log(res);
+        if (res.status === 200) {
+          icono.classList.toggle("completo");
+        }
       });
     }
   });
